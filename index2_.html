@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navbar with Bootstrap</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-white py-2">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="#">
+            <svg width="180" height="50" viewBox="0 0 300 60" xmlns="http://www.w3.org/2000/svg">
+                <rect width="300" height="60" fill="#ffffff" rx="10" />
+                <text x="15" y="35" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="bold">
+                    <tspan fill="red">FIT</tspan>
+                    <tspan fill="none" stroke="#000" stroke-width="1.5">PASS</tspan>
+                </text>
+                <text x="140" y="25" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#000">
+                    ®
+                </text>
+            </svg>
+        </a>
+        
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link" href="https://fitpass.co.in/studio">BROWSE STUDIOS</a></li>
+                <li class="nav-item"><a class="nav-link" href="https://fitpass.co.in/fitcoach">FITCOACH</a></li>
+                <li class="nav-item"><a class="nav-link" href="https://fitpass.co.in/fitfeast">FITFEAST</a></li>
+                <li class="nav-item"><a class="nav-link" href="https://fitpass.co.in/fitpass-tv">FITPASS-TV</a></li>
+            </ul>
+            <ul class="navbar-nav mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active bg-primary text-white rounded px-3" href="https://fitpass.co.in/membership">GET STARTED</a>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="#">LOG IN</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<section>
+    <div class="container-fluid p-0">
+        <div class="bg-light" style="height: 580px; background-image: url('image.png'); background-size: cover; background-repeat: no-repeat;"></div>
+    </div>
+</section>
+
+<div class="container text-center my-4">
+    <h1 class="fw-bold mb-3">Access <span class="text-danger">Premium Gyms &amp; Fitness Centres</span> Near You</h1>
+    <p class="fs-5 mb-4">With one membership, workout at 8,100+ fitness centres nationwide with 2,25,000+ workout sessions.</p>
+    <a class="btn btn-outline-danger px-4 py-2 fw-semibold" href="https://fitpass.co.in/pune/fitness-centers">Explore studios</a>
+</div>
+
+<div class="container my-5">
+    <div class="d-flex justify-content-center align-items-center gap-4 flex-nowrap overflow-auto">
+        
+        <div class="text-center gym-types">
+            <img class="workout-img mb-2" src="https://img.fitimg.in/gallery-image-abs-1-man-2024-56886F8B.png?format=webp&w=160&dpr=1.0" alt="Abs Workouts">
+            <h5 class="mt-2">Abs Workouts</h5>
+        </div>
+
+        <div class="text-center gym-types">
+            <img class="workout-img mb-2" src="https://img.fitimg.in/gallery-image-cardio-man-2024-9D452985.png?format=webp&w=160&dpr=1.0" alt="Cardio Workouts">
+            <h5 class="mt-2">Aerobics And <br> Cardio Workouts</h5>
+        </div>
+
+        <div class="text-center gym-types">
+            <img class="workout-img mb-2" src="https://img.fitimg.in/gallery-image-body-tone-man-2024-AA7951E1.png?format=webp&w=160&dpr=1.0" alt="Body Tone">
+            <h5 class="mt-2">Body Tone &amp; <br>Conditioning Workouts</h5>
+        </div>
+
+        <div class="text-center gym-types">
+            <img class="workout-img mb-2" src="https://img.fitimg.in/gallery-image-combat-man-2024-CC72A7ED.png?format=webp&w=160&dpr=1.0" alt="Combat Sports">
+            <h5 class="mt-2">Combat Sports Classes</h5>
+        </div>
+
+        <div class="text-center gym-types">
+            <img class="workout-img mb-2" src="https://img.fitimg.in/gallery-image-core-man-2024-DC6319D7.png?format=webp&w=160&dpr=1.0" alt="Core Workouts">
+            <h5 class="mt-2">Core Workouts</h5>
+        </div>
+
+        <div class="text-center gym-types">
+            <img class="workout-img mb-2" src="https://img.fitimg.in/gallery-image-dance-man-2024-36074AEB.png?format=webp&w=160&dpr=1.0" alt="Dance Class">
+            <h5 class="mt-2">Dance Class</h5>
+        </div>
+        
+    </div>
+</div>
+
+<div class="container-fluid bg-light py-4">
+    <div class="container">
+        <p class="fw-medium">Popular location in and around 
+            <a href="#pune" class="location-link">Pune <span class="icon-chevron_down"></span></a>
+        </p>
+
+        <div class="row g-5">
+            <div class="col-12 col-sm-4 col-md-3 col-lg-4  Areas text-center d-flex justify-content-between align-items-baseline">
+                <h2>Hadapsar</h2>
+                <h4>26 studios <i class="fa-solid fa-chevron-right"></i></h4>
+            </div>
+            <!-- Repeat above block for more locations as needed -->
+            <div class="col-12 col-sm-4 col-md-3 col-lg-4 Areas text-center d-flex justify-content-between align-items-baseline">
+                <h2>Kharadi</h2>
+                <h4>23 studios <i class="fa-solid fa-chevron-right"></i></h4>
+            </div>
+            <div class="col-12 col-sm-4 col-md-3 col-lg-4 Areas text-center d-flex justify-content-between align-items-baseline">
+                <h2>kothrud</h2>
+                <h4>20 studios <i class="fa-solid fa-chevron-right"></i></h4>
+            </div>
+            <div class="col-12 col-sm-4 col-md-3 col-lg-4 Areas text-center d-flex justify-content-between align-items-baseline">
+                <h2>Wakad</h2>
+                <h4>18 studios <i class="fa-solid fa-chevron-right"></i></h4>
+            </div>
+            <div class="col-12 col-sm-4 col-md-3 col-lg-4 Areas text-center d-flex justify-content-between align-items-baseline">
+                <h2>Pimple saudagar</h2>
+                <h4>16 studios <i class="fa-solid fa-chevron-right"></i></h4>
+            </div>
+            <div class="col-12 col-sm-4 col-md-3 col-lg-4 Areas text-center d-flex justify-content-between align-items-baseline">
+                <h2>Kondhwa</h2>
+                <h4>14 studios <i class="fa-solid fa-chevron-right"></i></h4>
+            </div>
+            <div class="col-12 col-sm-4 col-md-3 col-lg-4 Areas text-center d-flex justify-content-between align-items-baseline">
+                <h2>Aundh</h2>
+                <h4>13 studios <i class="fa-solid fa-chevron-right"></i></h4>
+            </div>
+            <div class="col-12 col-sm-4 col-md-3 col-lg-4 Areas text-center d-flex justify-content-between align-items-baseline">
+                 <h2>Waghoil</h2>
+                <h4>12 studios <i class="fa-solid fa-chevron-right"></i></h4>
+            </div>
+            <div class="col-12 col-sm-4 col-md-3 col-lg-4 Areas text-center d-flex justify-content-between align-items-baseline">
+               <h2>Lohegaon</h2>
+                <h4>12 studios <i class="fa-solid fa-chevron-right"></i></h4>
+            </div>
+            <div class="col-12 col-sm-4 col-md-3 col-lg-4 Areas text-center d-flex justify-content-between align-items-baseline">
+              <h2>Viman Nagar</h2>
+                <h4>11 studios <i class="fa-solid fa-chevron-right"></i></h4>
+            </div>
+            <div class="col-12 col-sm-4 col-md-3 col-lg-4 Areas text-center d-flex justify-content-between align-items-baseline">
+                <h2>Manjri</h2>
+                <h4>11 studios <i class="fa-solid fa-chevron-right"></i></h4>
+            </div>
+            <div class="col-12 col-sm-4 col-md-3 col-lg-4 Areas text-center d-flex justify-content-between align-items-baseline">
+                  <h2>Wadgaon Sheri</h2>
+                <h4>10 studios <i class="fa-solid fa-chevron-right"></i></h4>
+            </div>
+            <div class="col-12 col-sm-4 col-md-3 col-lg-4 Areas text-center d-flex justify-content-between align-items-baseline">
+            <h2>Moshi</h2>
+                <h4>9 studios <i class="fa-solid fa-chevron-right"></i></h4>
+            </div>
+            <div class="col-12 col-sm-4 col-md-3 col-lg-4 Areas text-center d-flex justify-content-between align-items-baseline">
+                  <h2>Katrsj</h2>
+                <h4>9 studios <i class="fa-solid fa-chevron-right"></i></h4>
+            </div>
+            <div class="col-12 col-sm-4 col-md-3 col-lg-4 Areas text-center d-flex justify-content-between align-items-baseline">
+              <h2>Nibm Road</h2>
+                <h4>8 studios <i class="fa-solid fa-chevron-right"></i></h4>
+            </div>
+            <div class="col-12 col-sm-4 col-md-3 col-lg-4 Areas text-center d-flex justify-content-between align-items-baseline">
+                 <h2>Bavdhan</h2>
+                <h4>8 studios <i class="fa-solid fa-chevron-right"></i></h4>
+            </div>
+            <div class="col-12 col-sm-4 col-md-3 col-lg-4 Areas text-center d-flex justify-content-between align-items-baseline">
+                 <h2>Vishrant Wadi</h2>
+                <h4>8 studios <i class="fa-solid fa-chevron-right"></i></h4>
+            </div>
+            <div class="col-12 col-sm-4 col-md-3 col-lg-4 Areas text-center d-flex justify-content-between align-items-baseline">
+               <h2>Baner</h2>
+                <h4>8 studios <i class="fa-solid fa-chevron-right"></i></h4>
+            </div>
+            <div class="col-12 col-sm-4 col-md-3 col-lg-4 Areas text-center d-flex justify-content-between align-items-baseline">
+                <h2>Ravet</h2>
+                <h4>8 studios <i class="fa-solid fa-chevron-right"></i></h4>
+            </div>
+            <div class="col-12 col-sm-4 col-md-3 col-lg-4 Areas text-center d-flex justify-content-between align-items-baseline">
+                 <h2>Chinchwad</h2>
+                <h4>8 studios <i class="fa-solid fa-chevron-right"></i></h4>
+            </div>
+            <div class="col-12 col-sm-4 col-md-3 col-lg-4 Areas text-center d-flex justify-content-between align-items-baseline border border-danger">
+               <h2 style="color: red;">see more <i class="fa-solid fa-chevron-down"style="color: #ff0512;"></i></h2>
+            </div>
+           
+        </div>
+          
+           
+            <!-- Add more as required -->
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Get Started | FITPASS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #0d6efd, #0a0a23);
+            color: white;
+        }
+
+        header {
+            background-color: #000;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            color: #ffffff;
+            font-size: 36px;
+        }
+
+        .container h2 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .container p {
+            font-size: 18px;
+            color: #ddd;
+        }
+
+        .workouts {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 50px 0;
+        }
+
+        .workout-card {
+            background: #f4f4f4;
+            color: #333;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .workout-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .workout-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            cursor: pointer;
+        }
+
+        .workout-card h3 {
+            text-align: center;
+            margin: 20px;
+            font-size: 24px;
+        }
+
+        .workout-card p {
+            font-size: 16px;
+            text-align: center;
+            padding: 0 10px 20px;
+            color: #555;
+        }
+
+        .cta-btn {
+            padding: 15px 40px;
+            background: #f01b1b;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 18px;
+            display: inline-block;
+            margin: 30px auto;
+            transition: 0.3s;
+            width: 100%;
+        }
+
+        .cta-btn:hover {
+            background: #d61212;
+        }
+
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+            background: #000;
+            color: #aaa;
+        }
+
+        .image-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 999;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .image-overlay img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.7);
+            animation: zoom 0.4s forwards;
+        }
+
+        @keyframes zoom {
+            from {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .image-overlay.show {
+            opacity: 1;
+            pointer-events: auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1> <span style="color: #f01b1b;">FIT</span>PASS</h1>
+    </header>
+
+    <div class="container text-center">
+        <h2>Get Started with Your Fitness Goals</h2>
+        <p>Explore 18 types of workouts to build muscle, boost stamina, and achieve peak health.</p>
+
+        <div class="workouts">
+
+            <!-- Workout Cards 1 to 18 -->
+            <div class="workout-card">
+                <div class="image-click">
+                    <img src="https://images.pexels.com/photos/416778/pexels-photo-416778.jpeg" alt="Pushups">
+                </div>
+                <h3>01 Pushups</h3>
+                <p>Strengthen your chest and core.</p>
+            </div>
+
+            <div class="workout-card">
+                <div class="image-click">
+                    <img src="https://images.pexels.com/photos/841130/pexels-photo-841130.jpeg" alt="Cardio">
+                </div>
+                <h3>02 Cardio</h3>
+                <p>Boost heart health and endurance.</p>
+            </div>
+
+            <div class="workout-card">
+                <div class="image-click">
+                   <img src="https://images.pexels.com/photos/3823039/pexels-photo-3823039.jpeg" alt="Yoga">
+                </div>
+                <h3>03 Yoga</h3>
+                <p>Enhance flexibility and mindfulness.</p>
+            </div>
+
+            <div class="workout-card">
+                <div class="image-click">
+ <img src="https://images.pexels.com/photos/2261477/pexels-photo-2261477.jpeg" alt="Weight Training">
+                </div>
+                <h3>04 Strength</h3>
+                <p>Increase muscle mass and power.</p>
+            </div>
+
+            <div class="workout-card">
+                <div class="image-click">
+<img src="https://images.pexels.com/photos/2780767/pexels-photo-2780767.jpeg" alt="Crossfit">
+                </div>
+                <h3>05 Crossfit</h3>
+                <p>Improve cardio endurance outdoors.</p>
+            </div>
+
+            <div class="workout-card">
+                <div class="image-click">
+                   <img src="https://images.pexels.com/photos/4164610/pexels-photo-4164610.jpeg" alt="Pullups">
+                </div>
+                <h3>06 HIIT</h3>
+                <p>Burn fat fast with intense intervals.</p>
+            </div>
+
+            <div class="workout-card">
+                <div class="image-click">
+                    <img src="https://images.pexels.com/photos/4056723/pexels-photo-4056723.jpeg" alt="Squats">
+                </div>
+                <h3>07 Stretching</h3>
+                <p>Improve mobility and prevent injuries.</p>
+            </div>
+
+            <div class="workout-card">
+                <div class="image-click">
+<img src="https://hips.hearstapps.com/hmg-prod/images/walking-lunges-667e8add0acad.jpg" alt="Lunges">
+                </div>
+                <h3>08 Swimming</h3>
+                <p>Full-body workout with low impact.</p>
+            </div>
+
+            <div class="workout-card">
+                <div class="image-click">
+<img src="https://imagely.mirafit.co.uk/wp/wp-content/uploads/2019/10/fitness-expert-uses-a-thick-grip-barbell-to-deadlift-1024x683.jpg" alt="Deadlifts">
+                </div>
+                <h3>09 Deadlifts</h3>
+                <p>Increase strength and power.</p>
+            </div>
+
+            <div class="workout-card">
+                <div class="image-click">
+                   <img src="https://images.pexels.com/photos/4167784/pexels-photo-4167784.jpeg" alt="Bench Press">
+                </div>
+                <h3>10 Bench Press</h3>
+                <p>Boost overall strength and agility.</p>
+            </div>
+
+            <div class="workout-card">
+                <div class="image-click">
+ <img src="https://barbend.com/wp-content/uploads/2021/06/BarBend-Article-Image-760-x-427-2021-06-02T165321.789.jpg" alt="Plank">
+                </div>
+                <h3>11 Boxing</h3>
+                <p>Enhance strength and reflexes.</p>
+            </div>
+
+            <div class="workout-card">
+                <div class="image-click">
+ <img src="https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg" alt="Cycling">
+                </div>
+                <h3>12 Dance</h3>
+                <p>Fun cardio with great movement benefits.</p>
+            </div>
+
+            <div class="workout-card">
+                <div class="image-click">
+      <img src="https://images.pexels.com/photos/207983/pexels-photo-207983.jpeg" alt="Swimming">
+                </div>
+                <h3>13 Swimming</h3>
+                <p>Full-body workout with low impact.</p>
+            </div>
+
+            <div class="workout-card">
+                <div class="image-click">
+   <img src="https://contenders.ca/wp-content/uploads/2023/11/Boxing-Class-1200x600.jpg" alt="Boxing">
+                </div>
+                <h3>14 Boxing</h3>
+                <p>Challenge strength and focus.</p>
+            </div>
+
+            <div class="workout-card">
+                <div class="image-click">
+   <img src="https://i.pinimg.com/1200x/90/f7/d4/90f7d49f51e181bf6c1daee7d881bf52.jpg" alt="Stretching">
+                </div>
+                <h3>15 Weightlifting</h3>
+                <p>Build muscle with heavy resistance.</p>
+            </div>
+
+            <div class="workout-card">
+                <div class="image-click">
+                    <img src="https://images.unsplash.com/photo-1648995361141-30676a75fd27" alt="Running">
+                </div>
+                <h3>16 Running</h3>
+                <p>Best full-body cardio workouts.</p>
+            </div>
+
+            <div class="workout-card">
+                <div class="image-click">
+                    <img src="https://images.pexels.com/photos/3823039/pexels-photo-3823039.jpeg" alt="Pilates">
+                </div>
+                <h3>17 Pilates</h3>
+                <p>Flexibility, posture, muscle tone.</p>
+            </div>
+
+            <div class="workout-card">
+                <div class="image-click">
+  <img src="https://media.istockphoto.com/id/485457702/photo/kickboxing-class.jpg?s=1024x1024&w=is&k=20&c=gEDtqvxnAPnK3L9KliQSaOCzow2KbemAOHM5zJZ3XgA=" alt="Kickboxing">
+                </div>
+                <h3>18 Zumba</h3>
+                <p>Fun dance cardio for burning calories.</p>
+            </div>
+
+        </div>
+
+        <a href="5_Get_started.html" class="cta-btn"><i class="fas fa-arrow-left"></i> Go Back</a>
+
+        <footer>
+            &copy; 2015-2025 FITPASS. All Rights Reserved.
+        </footer>
+    </div>
+
+
+    <div class="image-overlay" id="overlay">
+        <img src="" alt="Expanded Image">
+    </div>
+
+    <script>
+        const images = document.querySelectorAll('.image-click img');
+        const overlay = document.getElementById('overlay');
+        const overlayImg = overlay.querySelector('img');
+
+        images.forEach(img => {
+            img.addEventListener('click', () => {
+                overlayImg.src = img.src;
+                overlay.classList.add('show');
+            });
+        });
+
+        overlay.addEventListener('click', () => {
+            overlay.classList.remove('show');
+        });
+    </script>
+
+</body>
+
+</html>

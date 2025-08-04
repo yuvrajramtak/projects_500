@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gym Near Me in Pune - Find Gym in Pune | FITPASS</title>
+
+    <!-- Font Awesome & Bootstrap -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="image copy 7.png" type="image/x-icon">
+
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #111827;
+            color: #fff;
+            line-height: 1.7;
+        }
+
+
+        nav {
+            position: sticky;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: linear-gradient(to right, #0d6efd, #111827);
+            padding: 0 32px;
+            color: #fff;
+            z-index: 1000;
+        }
+
+        /* .logo svg {
+            padding: 10px 0;
+        } */
+        .logo {
+            display: flex;
+
+        }
+
+        .logo svg {
+            height: 50px;
+            width: auto;
+        }
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 2px;
+            background: #fff;
+        }
+
+        .section-title {
+            text-align: center;
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+
+        .lead {
+            text-align: center;
+            color: #ccc;
+            margin-bottom: 2rem;
+        }
+
+        .about-card {
+            background-color: #fff;
+            color: #111;
+            padding: 20px;
+            border-radius: 10px;
+            height: 100%;
+            transition: 0.3s;
+        }
+
+        .about-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .team-img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid #0d6efd;
+            margin-bottom: 1rem;
+        }
+
+        .custom-footer {
+            background: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            padding: 40px 20px;
+        }
+
+        .footer-columns {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: space-between;
+        }
+
+        .footer-col h4 {
+            margin-bottom: 12px;
+            font-size: 16px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 6px;
+        }
+
+        .social-icons i {
+            font-size: 16px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .certification {
+            margin-top: 20px;
+        }
+
+        .certification img {
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            margin-top: 20px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 768px) {
+
+
+
+            .hamburger {
+                display: flex;
+            }
+
+            .footer-columns {
+                flex-direction: column;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px;
+            background: #0a0a23;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: #fff;
+            transition: 0.3s;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            padding: 8px;
+        }
+
+        .nav-links a:hover {
+            color: #e94f4f;
+            /* Add hover color for nav links */
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                position: fixed;
+                top: 0;
+                right: 0;
+                background: #0a0a23;
+                width: 250px;
+                height: 100%;
+                padding: 60px 20px;
+                transform: translateX(100%);
+                transition: transform 0.3s ease;
+            }
+
+            .nav-links.active {
+                transform: translateX(0);
+            }
+
+            .nav-links a {
+                display: block;
+                margin: 10px 0;
+            }
+
+            .close-btn {
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                font-size: 20px;
+                cursor: pointer;
+                color: #fff;
+            }
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+
+    <nav>
+        <div class="logo"><a href="index_.html" style="text-decoration: none;color: #fff;"> <span
+                    style="color: red;">FIT</span>PASS</a></div>
+        <div class="hamburger" onclick="openMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="nav-links" id="mobileMenu">
+            <div class="close-btn" onclick="closeMenu()">✖</div>
+            <a href="1_index_.html">Home</a>
+            <a href="2_About1_.html">About</a>
+            <a href="3_Services3_.html">Services</a>
+            <a href="4_FITPASS_App.html">FITPASS App</a>
+            <a style="color: #0d6efd;" href="5_Get_started.html">Get Started</a>
+            <a href="6_Log-in_from.html">Login</a>
+        </div>
+    </nav>
+    <!-- About Us Section -->
+    <section class="py-5">
+        <div class="container">
+            <h1 class="section-title"><span style="color: red;">FIT</span>PASS</h1>
+            <p class="lead">India's Largest Fitness Network - Thousands of Gyms. One Membership. Unlimited Workouts.</p>
+
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="about-card">
+                        <h3 style="color: red;">Who We Are</h3>
+                        <p>FITPASS connects you with thousands of gyms, studios, and trainers across India, offering
+                            flexibility and convenience for your fitness journey.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="about-card">
+                        <h3 style="color: red;">Our Mission</h3>
+                        <p>We make fitness flexible, accessible, and affordable through smart technology-driven
+                            solutions for everyone.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="about-card">
+                        <h3 style="color: red;">What We Offer</h3>
+                        <ul>
+                            <li>5,500+ gyms & fitness studios</li>
+                            <li>Yoga, Zumba, Pilates, CrossFit, Dance</li>
+                            <li>AI-based fitness & diet plans</li>
+                            <li>Anytime, Anywhere scheduling</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="about-card">
+                        <h3 style="color: red;">Why Choose Us?</h3>
+                        <ul>
+                            <li>Workout anywhere, anytime</li>
+                            <li>Affordable membership</li>
+                            <li>Expert trainers & verified gyms</li>
+                            <li>Personalized AI guidance</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="about-card">
+                        <h3 style="color: red;">Core Values</h3>
+                        <p>Flexibility, Innovation, Wellness, Affordability, Community — empowering individuals through
+                            smarter fitness choices and better health.</p>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="about-card">
+                        <h3 style="color: red;">Our Story</h3>
+                        <p>Founded in 2015, FITPASS began with a vision to simplify fitness. From a small idea, we've
+                            become India’s trusted fitness platform for modern lifestyles.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Team -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="section-title">Meet Our Team</h2>
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-4 text-center">
+                    <img src="https://img.freepik.com/free-photo/young-adult-doing-indoor-sport-gym_23-2149205542.jpg"
+                        class="team-img" alt="Team Member">
+                    <h5>Rohit Sharma</h5>
+                    <p>Founder & CEO</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <img src="https://img.freepik.com/premium-photo/male-muscle-coach-weight-program-trainer-standing-gym-sport-club-smart-fitnees-director_43300-4955.jpg"
+                        class="team-img" alt="Team Member">
+                    <h5>Siraj Mehra</h5>
+                    <p>Head of Operations</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <img src="https://img.freepik.com/premium-photo/portrait-handsome-personal-trainer-wearing-sportswear-fitness-center-gym-standing-strong_600776-829.jpg"
+                        class="team-img" alt="Team Member">
+                    <h5>Rahul Verma</h5>
+                    <p>Chief Technology Officer</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="custom-footer">
+        <div class="footer-columns">
+            <div class="footer-col">
+                <h4>PRODUCTS</h4>
+                <ul>
+                    <li>FITPASS</li>
+                    <li>FITFEAST</li>
+                    <li>FITCOACH</li>
+                    <li>FITPASS-TV</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>ABOUT US</h4>
+                <ul>
+                    <li>About</li>
+                    <li>Team</li>
+                    <li>Careers</li>
+                    <li>Blog</li>
+                    <li>Investor Relation</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>HELP</h4>
+                <ul>
+                    <li>Contact Us</li>
+                    <li>Become a Partner</li>
+                    <li>FAQs</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>CONSUMER POLICY</h4>
+                <ul>
+                    <li>Terms & Conditions</li>
+                    <li>Privacy Policy</li>
+                    <li>Sitemap</li>
+                </ul>
+            </div>
+            <div class="footer-col address">
+                <h4>Registered Office Address</h4>
+                <p>ASR Market Ventures Pvt Ltd<br> 3E/2, Block E3, Jhandewalan Extension, New Delhi 110055, India</p>
+                <p>CIN: U52590DL2012PTC232368</p>
+                <p>Toll-free: 1800–5714–466<br>Email: care@fitpass.co.in</p>
+                <div class="social-icons">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-x-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-youtube"></i>
+                    <i class="fab fa-linkedin-in"></i>
+                    <i class="fab fa-whatsapp"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="certification">
+            <h4>Certification</h4>
+            <p>We meet international quality and data security standards</p>
+            <img src="/9_Fitpass_Gym_sides/acdti.img/image copy 4.png" alt="ISO" width="50">
+            <img src="/9_Fitpass_Gym_sides/acdti.img/image copy 5.png" alt="GDPR" width="50">
+        </div>
+
+        <hr style="border-color: #444;">
+
+        <div class="footer-bottom">
+            <div class="footer-links">
+                <span><i class="fas fa-file-alt"></i> Corporate Report</span>
+                <span><i class="fas fa-briefcase-medical"></i> Corporate Wellness</span>
+                <span><i class="fas fa-dumbbell"></i> Gym Solutions</span>
+            </div>
+            <p>© 2025 FITPASS. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function openMenu() {
+            document.getElementById('mobileMenu').classList.add('active');
+        }
+
+        function closeMenu() {
+            document.getElementById('mobileMenu').classList.remove('active');
+        }
+    </script>
+</body>
+
+</html>

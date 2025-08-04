@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Form</title>
+    <link rel="shortcut icon" href="fire_fox_.png" type="image/x-icon">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Poppins, sans-serif;
+        }
+
+        html, body {
+            height: 100%;
+            background: #1f1f47;
+            overflow: hidden;
+             /* Prevent scrollbars */
+        }
+
+        .main-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            position: relative;
+            overflow: hidden; 
+            /* Ensures blob does not overflow */
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px;
+            background: #0a0a23;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            width: 100%;
+        }
+
+        .logo {
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: #fff;
+            transition: 0.3s;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            padding: 8px;
+        }
+
+        .nav-links a:hover {
+            color: #e94f4f;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                position: fixed;
+                top: 0;
+                right: 0;
+                background: #0a0a23;
+                width: 250px;
+                height: 100%;
+                padding: 60px 20px;
+                transform: translateX(100%);
+                transition: transform 0.3s ease;
+            }
+
+            .nav-links.active {
+                transform: translateX(0);
+            }
+
+            .nav-links a {
+                display: block;
+                margin: 10px 0;
+            }
+
+            .close-btn {
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                font-size: 20px;
+                cursor: pointer;
+                color: #fff;
+            }
+        }
+
+        .wrapper {
+            position: relative;
+            width: 400px;
+            padding: 40px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            z-index: 1;
+        }
+
+        h2 {
+            font-size: 2em;
+            color: #fff;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .input-box {
+            position: relative;
+            width: 320px;
+            margin: 20px 0;
+            border-bottom: 2px solid #fff;
+        }
+
+        .input-box label {
+            position: absolute;
+            top: 50%;
+            left: 5px;
+            transform: translateY(-50%);
+            font-size: 1em;
+            pointer-events: none;
+            color: #fff;
+            transition: 0.5s;
+        }
+
+        .input-box input:focus~label,
+        .input-box input:valid~label {
+            top: 5px;
+        }
+
+        .input-box input {
+            width: 100%;
+            height: 50px;
+            background: transparent;
+            border: none;
+            outline: none;
+            font-size: 1em;
+            color: #fff;
+            padding: 0 35px 0 5px;
+        }
+
+        .input-box .icon {
+            position: absolute;
+            right: 8px;
+            color: #fff;
+            font-size: 1.2em;
+            line-height: 57px;
+        }
+
+        .remember-forgot {
+            margin: -10px 0 10px;
+            font-size: 1em;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            width: 320px;
+        }
+
+        .remember-forgot a {
+            color: #0b57fc;
+            text-decoration: none;
+        }
+
+        .remember-forgot a:hover {
+            text-decoration: underline;
+        }
+
+        .remember-forgot label input {
+            accent-color: #fa709a;
+            margin-right: 3px;
+        }
+
+        button {
+            width: 100%;
+            height: 45px;
+            background: #fa709a;
+            border: none;
+            outline: none;
+            border-radius: 40px;
+            cursor: pointer;
+            font-size: 1em;
+            color: #fff;
+            font-weight: 500;
+        }
+
+        .register-link {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 10px;
+            color: #fff;
+            text-align: center;
+            margin: 25px 0 10px;
+            width: 320px;
+        }
+
+        .register-link a {
+            color: #0b57fc;
+            text-decoration: none;
+        }
+
+        .register-link a:hover {
+            text-decoration: underline;
+        }
+
+        .blob {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: linear-gradient(180deg, rgba(47, 184, 255, 0.42), #5c9df1 100%);
+            border-radius: 24% 76% 35% 65% / 27% 36% 64% 73%;
+            transform: translate(-100px, -50px) rotate(-90deg);
+            transition: 1s cubic-bezier(.07, .8, .16, 1);
+            z-index: 0;
+            animation: animateBlob 20s infinite alternate;
+        }
+
+        .blob:hover {
+            width: 520px;
+            height: 520px;
+            filter: blur(30px);
+            box-shadow:
+                inset 0 0 0 5px rgba(255, 255, 255, 0.6),
+                inset 100px 100px 0 0 #fa709a,
+                inset 100px 100px 0 0 #784ba8,
+                inset 100px 100px 0 0 #2b86c5;
+        }
+
+        @media (max-width: 480px) {
+            .wrapper {
+                width: 90%;
+                padding: 20px 0;
+            }
+
+            .input-box {
+                width: 90%;
+            }
+        }
+
+        @keyframes animateBlob {
+            100% {
+                transform: translate(300px, -50px) rotate(-10deg);
+                border-radius: 76% 24% 33% 67% / 68% 55% 45% 32%;
+            }
+        }
+
+        table {
+            width: 90%;
+            border-collapse: collapse;
+            margin: 20px auto;
+            color: #fff;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        table th,
+        table td {
+            padding: 8px 12px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        table th {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #fa709a;
+        }
+
+        table td {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+    </style>
+</head>
+
+<body>
+    <header> 
+        <nav>
+            <div class="logo">
+                <a style="text-decoration: none;color: #fff;" href="index_.html">
+                    <span style="color: red;">FIT</span>PASS
+                </a>
+            </div>
+            <div class="hamburger" onclick="openMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="nav-links" id="mobileMenu">
+                <div class="close-btn" onclick="closeMenu()">✖</div>
+                <a href="1_index_.html">Home</a>
+                <a href="2_About1_.html">About</a>
+                <a href="3_Services3_.html">Services</a>
+                <a href="4_FITPASS_App.html">FITPASS App</a>
+                <a style="color: #0d6efd;" href="5_Get_Started.html">Get Started</a>
+                <a href="6_Log-in_from.html">Login</a>
+            </div>
+        </nav>
+    </header>
+    <div class="main-content">
+        <div class="blob"></div>
+        <div class="wrapper">
+            <form action="">
+                <h2>Login</h2>
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="mail-outline"></ion-icon></span>
+                    <input type="email" id="email" name="email" required />
+                    <label for="email">Email</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
+                    <input type="password" id="password" name="password" required />
+                    <label for="password">Password</label>
+                </div>
+                <div class="remember-forgot">
+                    <label><input type="checkbox" />Remember me</label>
+                    <a href="#">Forgot password?</a>
+                </div>
+                <button type="submit">Login</button>
+                <div class="register-link">
+                    <p>Don't have an account?</p>
+                    <a href="#">Register</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script>
+        const form = document.querySelector("form");
+        const emailInput = document.querySelector("#email");
+        const passwordInput = document.querySelector("#password");
+
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+            const email = emailInput.value.trim();
+            const password = passwordInput.value.trim();
+            if (!email || !password) {
+                alert("Please fill in both Email and Password.");
+                return;
+            }
+            alert(`Welcome, ${email}!\nLogin Successful.`);
+            emailInput.value = "";
+            passwordInput.value = "";
+        });
+
+        function openMenu() {
+            document.getElementById('mobileMenu').classList.add('active');
+        }
+
+        function closeMenu() {
+            document.getElementById('mobileMenu').classList.remove('active');
+        }
+    </script>
+</body>
+</html>

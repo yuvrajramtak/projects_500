@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Right Side Navbar Open / Close</title>
+    <style>
+        nav {
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            padding: 16px;
+            background: linear-gradient(135deg, #0d6efd, #0a0a23);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            color: #fff;
+        }
+
+        .logo {
+            font-weight: bold;
+            font-size: 1.2rem;
+            padding: 12px 0;
+            margin-right: 32px;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 5px;
+            margin-left: auto;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: #fff;
+            transition: 0.3s;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .nav-links a:hover {
+            
+            color: #fa709a;
+        }
+
+        .close-btn {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+                position: absolute;
+                right: 16px;
+                top: 16px;
+                margin-left: 0;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                position: fixed;
+                top: 0;
+                right: 0;
+                background: #0a0a23;
+                width: 250px;
+                height: 100%;
+                padding: 60px 20px;
+                gap: 10px;
+                transform: translateX(100%);
+                transition: transform 0.3s ease;
+                display: flex;
+            }
+
+            .nav-links.active {
+                transform: translateX(0);
+            }
+
+            .nav-links a {
+                display: block;
+                margin: 10px 0;
+                padding: 12px 0;
+            }
+
+            .close-btn {
+                display: block;
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                font-size: 20px;
+                cursor: pointer;
+                color: #fff;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+      <nav>
+            <div class="logo"> <a style="text-decoration: none;color: #fff;" href="index_.html"><span
+                        style="color: red;">FIT</span>PASS</a></div>
+            <div class="hamburger" onclick="openMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="nav-links" id="mobileMenu">
+                <div class="close-btn" onclick="closeMenu()">✖</div>
+                <a href="index_.html">Home</a>
+                <a href="About1_.html">About</a>
+                <a href="Services3_.html">Services</a>
+                <a href="FITPASS_App.html">FITPASS App</a>
+                <a style="color: #0d6efd;" href="#">Get Started</a>
+                <a href="Log-in_from.html">Login</a>
+            </div>
+        </nav>
+
+    <script>
+        function openMenu() {
+            document.getElementById('mobileMenu').classList.add('active');
+        }
+
+        function closeMenu() {
+            document.getElementById('mobileMenu').classList.remove('active');
+        }
+    </script>
+
+</body>
+
+</html>

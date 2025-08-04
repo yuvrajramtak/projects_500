@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FITPASS - Fitness for Everyone</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons (if needed later) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <style>
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background: linear-gradient(135deg, #1f1f47, #3d3d80);
+            color: white;
+        }
+
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .features li::before {
+            content: '✔️ ';
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body class="bg-dark">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#"><span class="text-danger">FIT</span>PASS</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="1_index_.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="2_Adout1_.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="3_Services3_.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="4_FITPASS_App.html">FITPASS APP</a></li>
+                    <li class="nav-item"><a class="nav-link text-primary" href="5_Get_Started.html">Get Started</a></li>
+                    <li class="nav-item"><a class="nav-link" href="6_Log-in_from.html">Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="container text-center my-5 flex-grow-1 d-flex flex-column justify-content-center align-items-center">
+        <h1 class="display-2 fw-bold"><span class="text-danger">FIT</span>PASS</h1>
+        <h3 class="text-light mb-4">Your Fitness Journey Starts Here</h3>
+        <a href="#" class="btn btn-danger rounded-pill px-5 py-2 mb-4">Download the App</a>
+
+        <div class="features bg-transparent text-start mt-5 w-100 w-md-75 mx-auto">
+            <h2 class="mb-4">Why Choose FITPASS?</h2>
+            <ul class="list-unstyled fs-5">
+                <li>Access to 5000+ Gyms & Fitness Studios</li>
+                <li>Book Classes Anytime, Anywhere</li>
+                <li>Personal Diet & Workout Plans</li>
+                <li>Track Progress with Smart Tools</li>
+                <li>Expert Trainers & Coaches</li>
+                <li>Affordable Subscription Plans</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center text-light py-3 bg-black">
+        &copy; 2025 FITPASS. All Rights Reserved.
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

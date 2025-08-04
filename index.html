@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Picture Perfect Gallery</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    body {
+      background: #111;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    /* Controls */
+    .controls {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .theme-toggle, .filter-btn {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      background: #ff4b5c;
+      color: #fff;
+      font-size: 16px;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    .theme-toggle:hover, .filter-btn:hover {
+      background: #ff1e3a;
+    }
+
+    .search-box {
+      padding: 10px;
+      width: 200px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      outline: none;
+      font-size: 14px;
+    }
+
+    /* Gallery */
+    .gallery-container {
+      max-width: 1300px;
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      cursor: pointer;
+      opacity: 1;
+      transform: scale(1);
+      transition: transform 0.4s ease, box-shadow 0.4s ease, opacity 0.4s;
+    }
+
+    .gallery-item.hide {
+      opacity: 0;
+      transform: scale(0.8);
+      pointer-events: none;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.05);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+    }
+
+    .gallery-text {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+      font-size: 16px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    /* Lightbox */
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 80%;
+      border-radius: 10px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.8);
+    }
+
+    .lightbox:target {
+      display: flex;
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: #fff;
+      font-size: 40px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .close:hover {
+      color: #ff4b5c;
+    }
+
+    /* Light Mode */
+    body.light-mode {
+      background: #f9f9f9;
+      color: #333;
+    }
+
+    body.light-mode .theme-toggle, 
+    body.light-mode .filter-btn {
+      background: #333;
+      color: #fff;
+    }
+
+    body.light-mode .gallery-text {
+      background: linear-gradient(to top, rgba(255, 255, 255, 0.7), transparent);
+      color: #111;
+    }
+
+    body.light-mode .lightbox {
+      background: rgba(255, 255, 255, 0.9);
+    }
+
+    body.light-mode .close {
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <div class="controls">
+    <button class="theme-toggle" onclick="toggleTheme()">Switch to Light Mode</button>
+    <button class="filter-btn" onclick="filterGallery('all')">All</button>
+    <button class="filter-btn" onclick="filterGallery('nature')">Nature</button>
+    <button class="filter-btn" onclick="filterGallery('city')">City</button>
+    <input type="text" class="search-box" placeholder="Search images..." onkeyup="searchImages()">
+  </div>
+
+  <div class="gallery-container">
+    <div class="gallery-item nature">
+      <a href="#img1"><img src="https://picsum.photos/id/1015/600/400" alt="Mountain View"></a>
+      <div class="gallery-text">Mountain View</div>
+    </div>
+    <div class="gallery-item nature">
+      <a href="#img2"><img src="https://picsum.photos/id/1016/600/400" alt="Forest Path"></a>
+      <div class="gallery-text">Forest Path</div>
+    </div>
+    <div class="gallery-item city">
+      <a href="#img3"><img src="https://picsum.photos/id/1018/600/400" alt="Sunset Sky"></a>
+      <div class="gallery-text">Sunset Sky</div>
+    </div>
+    <div class="gallery-item nature">
+      <a href="#img4"><img src="https://picsum.photos/id/1019/600/400" alt="Serene Lake"></a>
+      <div class="gallery-text">Serene Lake</div>
+    </div>
+    <div class="gallery-item city">
+      <a href="#img5"><img src="https://picsum.photos/id/1020/600/400" alt="City Lights"></a>
+      <div class="gallery-text">City Lights</div>
+    </div>
+    <div class="gallery-item nature">
+      <a href="#img6"><img src="https://picsum.photos/id/1024/600/400" alt="Golden Fields"></a>
+      <div class="gallery-text">Golden Fields</div>
+    </div>
+    <div class="gallery-item nature">
+      <a href="#img7"><img src="https://picsum.photos/id/1025/600/400" alt="Ocean Waves"></a>
+      <div class="gallery-text">Ocean Waves</div>
+    </div>
+    <div class="gallery-item city">
+      <a href="#img8"><img src="https://picsum.photos/id/1027/600/400" alt="Starry Night"></a>
+      <div class="gallery-text">Starry Night</div>
+    </div>
+    <div class="gallery-item nature">
+      <a href="#img9"><img src="https://picsum.photos/id/1035/600/400" alt="Autumn Leaves"></a>
+      <div class="gallery-text">Autumn Leaves</div>
+    </div>
+    <div class="gallery-item city">
+      <a href="#img10"><img src="https://picsum.photos/id/1039/600/400" alt="Desert Dunes"></a>
+      <div class="gallery-text">Desert Dunes</div>
+    </div>
+  </div>
+
+  <!-- Lightboxes -->
+   
+  <div class="lightbox" id="img1">
+    <a href="#" class="close">&times;</a>
+    <img src="https://picsum.photos/id/1015/1200/800" alt="Image 1">
+  </div>
+  <div class="lightbox" id="img2"><a href="#" class="close">&times;</a><img src="https://picsum.photos/id/1016/1200/800" alt="Image 2"></div>
+  <div class="lightbox" id="img3"><a href="#" class="close">&times;</a><img src="https://picsum.photos/id/1018/1200/800" alt="Image 3"></div>
+  <div class="lightbox" id="img4"><a href="#" class="close">&times;</a><img src="https://picsum.photos/id/1019/1200/800" alt="Image 4"></div>
+  <div class="lightbox" id="img5"><a href="#" class="close">&times;</a><img src="https://picsum.photos/id/1020/1200/800" alt="Image 5"></div>
+  <div class="lightbox" id="img6"><a href="#" class="close">&times;</a><img src="https://picsum.photos/id/1024/1200/800" alt="Image 6"></div>
+  <div class="lightbox" id="img7"><a href="#" class="close">&times;</a><img src="https://picsum.photos/id/1025/1200/800" alt="Image 7"></div>
+  <div class="lightbox" id="img8"><a href="#" class="close">&times;</a><img src="https://picsum.photos/id/1027/1200/800" alt="Image 8"></div>
+  <div class="lightbox" id="img9"><a href="#" class="close">&times;</a><img src="https://picsum.photos/id/1035/1200/800" alt="Image 9"></div>
+  <div class="lightbox" id="img10"><a href="#" class="close">&times;</a><img src="https://picsum.photos/id/1039/1200/800" alt="Image 10"></div>
+
+  <script>
+    // Theme toggle
+    function toggleTheme() {
+      const body = document.body;
+      body.classList.toggle("light-mode");
+      const button = document.querySelector(".theme-toggle");
+      button.textContent = body.classList.contains("light-mode") 
+        ? "Switch to Night Mode" 
+        : "Switch to Light Mode";
+    }
+
+    // Filter by category
+    function filterGallery(category) {
+      const items = document.querySelectorAll(".gallery-item");
+      items.forEach(item => {
+        if (category === 'all' || item.classList.contains(category)) {
+          item.classList.remove("hide");
+        } else {
+          item.classList.add("hide");
+        }
+      });
+    }
+
+    // Search images
+    function searchImages() {
+      const input = document.querySelector(".search-box").value.toLowerCase();
+      const items = document.querySelectorAll(".gallery-item");
+      items.forEach(item => {
+        const text = item.querySelector(".gallery-text").innerText.toLowerCase();
+        if (text.includes(input)) {
+          item.classList.remove("hide");
+        } else {
+          item.classList.add("hide");
+        }
+      });
+    }
+  </script>
+</body>
+</html>

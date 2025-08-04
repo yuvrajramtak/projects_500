@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FITPASS - Fitness for Everyone</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1f1f47, #3d3d80);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            width: 100%;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 999;
+        }
+
+        header h2 {
+            color: #ffffff;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 1rem;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #fa709a;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 4px 0;
+            transition: 0.3s;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                position: fixed;
+                top: 0;
+                right: 0;
+                background-color: rgba(0, 0, 0, 0.9);
+                flex-direction: column;
+                width: 200px;
+                height: 100%;
+                padding-top: 60px;
+                transform: translateX(100%);
+            }
+
+            nav.active {
+                transform: translateX(0);
+            }
+
+            nav a {
+                margin: 20px 0;
+                font-size: 1.2rem;
+                width: 100%;
+                padding: 10px 20px;
+                text-align: left;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+        }
+
+        .container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .container h1 {
+            font-size: 4rem;
+            color: #ffffff;
+            margin-bottom: 10px;
+            animation: fadeInDown 1s ease;
+        }
+
+        .container h3 {
+            font-weight: 400;
+            color: #ccc;
+            margin-bottom: 30px;
+            animation: fadeInDown 1.3s ease;
+        }
+
+        .btn {
+            background: #ff0000;
+            color: #ffffff;
+            border: none;
+            padding: 12px 40px;
+            font-size: 1rem;
+            border-radius: 30px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: 0.3s ease;
+            animation: fadeInUp 1.6s ease;
+        }
+
+        .btn:hover {
+            background: #f70950;
+        }
+
+        .features {
+            margin-top: 50px;
+            max-width: 800px;
+            text-align: left;
+            animation: fadeInUp 1.9s ease;
+        }
+
+        .features h2 {
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .features ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .features li {
+            margin-bottom: 12px;
+            color: #ddd;
+            font-size: 1rem;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .features li::before {
+            content: '✔️';
+            position: absolute;
+            left: 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #aaa;
+            font-size: 0.9rem;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h2><span style="color: red;">FIT</span>PASS</h2>
+        <div class="menu-toggle" id="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <nav id="nav">
+            <a href="1_index_.html">Home</a>
+            <a href="2_About1_.html">About</a>
+            <a href="3_Services3_.html">Services</a>
+            <a href="4_FITPASS_App.html">FITPASS APP</a>
+            <a style="color: royalblue;" href="5_Get_Started.html">Get Started</a>
+            <a href="6_Log-in_from.html">Login</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1><span style="color: red;">FIT</span>PASS</h1>
+        <h3>Your Fitness Journey Starts Here</h3>
+        <a href="#" class="btn">Download the App</a>
+
+        <div id="features" class="features">
+            <h2>Why Choose FITPASS?</h2>
+            <ul>
+                <li>Access to 5000+ Gyms & Fitness Studios</li>
+                <li>Book Classes Anytime, Anywhere</li>
+                <li>Personal Diet & Workout Plans</li>
+                <li>Track Progress with Smart Tools</li>
+                <li>Expert Trainers & Coaches</li>
+                <li>Affordable Subscription Plans</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2025 FITPASS. All Rights Reserved.
+    </footer>
+
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const nav = document.getElementById('nav');
+
+        menuToggle.addEventListener('click', () => {
+            nav.classList.toggle('active');
+        });
+    </script>
+
+</body>
+
+</html>
